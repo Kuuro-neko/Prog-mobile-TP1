@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Prog-mobile-TP1</string>
+
+    <string name="label_lastname">Nom</string>
+    <string name="label_firstname">Prénom</string>
+    <string name="label_age">Âge</string>
+    <string name="label_skills">Domaine de compétences</string>
+    <string name="label_phone">N° de téléphone</string>
+
 </resources>
