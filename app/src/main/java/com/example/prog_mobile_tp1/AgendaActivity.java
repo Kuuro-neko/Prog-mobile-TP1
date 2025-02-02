@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class AgendaActivity extends AppCompatActivity {
+public class AgendaActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

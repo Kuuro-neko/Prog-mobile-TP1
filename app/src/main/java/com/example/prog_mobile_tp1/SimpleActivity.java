@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class SimpleActivity extends AppCompatActivity {
+public class SimpleActivity extends MenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

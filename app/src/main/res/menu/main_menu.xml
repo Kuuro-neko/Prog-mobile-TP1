@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_helloworld"
+        android:title="Hello World"/>
+    <item
+        android:id="@+id/menu_simple"
+        android:title="Simple Interface"/>
+    <item
+        android:id="@+id/menu_train"
+        android:title="Train Interface"/>
+    <item
+        android:id="@+id/menu_agenda"
+        android:title="Agenda Interface"/>
+</menu>
