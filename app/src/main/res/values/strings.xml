@@ -28,4 +28,11 @@
 
     <!-- Exercice 7 -->
     <string name="button_call">Appeler</string>
+
+    <!-- Exercice 8 -->
+    <string name="label_departure">Départ</string>
+    <string name="label_arrival">Arrivée</string>
+    <string name="hint_departure">Gare de départ</string>
+    <string name="hint_arrival">Gare d\'arrivée</string>
+    <string name="button_search">Rechercher</string>
 </resources>

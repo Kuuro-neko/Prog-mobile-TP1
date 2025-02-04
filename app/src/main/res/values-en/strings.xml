@@ -27,4 +27,9 @@
 
     <!-- Exercice 7 -->
     <string name="button_call">Call</string>
+    <string name="label_departure">Departure</string>
+    <string name="label_arrival">Arrival</string>
+    <string name="hint_departure">Departure station</string>
+    <string name="hint_arrival">Arrival station</string>
+    <string name="button_search">Search</string>
 </resources>

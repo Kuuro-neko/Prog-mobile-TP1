@@ -1,7 +1,15 @@
 package com.example.prog_mobile_tp1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,38 +18,57 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class TrainActivity extends MenuActivity {
 
-    JSONArray fakeTrainData;
+    ListView trainList;
+    private void updateTrainList(String departureStation, String arrivalStation) {
+        String[] trainDepStations = getResources().getStringArray(R.array.train_departures_stations);
+        String[] trainArrStations = getResources().getStringArray(R.array.train_arrival_stations);
+        String[] trainDepTimes = getResources().getStringArray(R.array.train_departures_times);
+        String[] trainArrTimes = getResources().getStringArray(R.array.train_arrival_times);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        for (int i = 0; i < trainDepStations.length; i++) {
+            if (trainDepStations[i].contains(departureStation) && trainArrStations[i].contains(arrivalStation)) {
+                String trainInfo = "Train " + (i + 1) + ": " + trainDepStations[i] + " -> " + trainArrStations[i] + "\n" +
+                        getString(R.string.label_departure) + ": " + trainDepTimes[i] + ", " + getString(R.string.label_arrival) + ": " + trainArrTimes[i];
+                adapter.add(trainInfo);
+            }
+        }
+        trainList.setAdapter(adapter);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_train);
-        fakeTrainData = new JSONArray();
-        // ChatGPT est très bon pour générer ces données ! :)
-        fakeTrainData.put("train_number : 1, departure_time : 12:00, arrival_time : 13:00, departure_station : Paris, arrival_station : Lyon");
-        fakeTrainData.put("train_number : 2, departure_time : 14:00, arrival_time : 15:00, departure_station : Lyon, arrival_station : Marseille");
-        fakeTrainData.put("train_number : 3, departure_time : 16:00, arrival_time : 17:00, departure_station : Marseille, arrival_station : Nice");
-        fakeTrainData.put("train_number : 4, departure_time : 18:00, arrival_time : 19:00, departure_station : Nice, arrival_station : Montpellier");
-        fakeTrainData.put("train_number : 5, departure_time : 20:00, arrival_time : 21:00, departure_station : Montpellier, arrival_station : Bordeaux");
-        fakeTrainData.put("train_number : 6, departure_time : 22:00, arrival_time : 23:00, departure_station : Bordeaux, arrival_station : Toulouse");
-        fakeTrainData.put("train_number : 7, departure_time : 00:00, arrival_time : 01:00, departure_station : Toulouse, arrival_station : Paris");
-        fakeTrainData.put("train_number : 8, departure_time : 02:00, arrival_time : 03:00, departure_station : Paris, arrival_station : Lyon");
-        fakeTrainData.put("train_number : 9, departure_time : 04:00, arrival_time : 05:00, departure_station : Lyon, arrival_station : Marseille");
-        fakeTrainData.put("train_number : 10, departure_time : 06:00, arrival_time : 07:00, departure_station : Marseille, arrival_station : Nice");
-        fakeTrainData.put("train_number : 11, departure_time : 08:00, arrival_time : 09:00, departure_station : Nice, arrival_station : Montpellier");
-        fakeTrainData.put("train_number : 12, departure_time : 10:00, arrival_time : 11:00, departure_station : Montpellier, arrival_station : Bordeaux");
-        fakeTrainData.put("train_number : 13, departure_time : 12:00, arrival_time : 13:00, departure_station : Bordeaux, arrival_station : Toulouse");
-        fakeTrainData.put("train_number : 14, departure_time : 14:00, arrival_time : 15:00, departure_station : Toulouse, arrival_station : Paris");
-        fakeTrainData.put("train_number : 15, departure_time : 16:00, arrival_time : 17:00, departure_station : Paris, arrival_station : Lyon");
-        fakeTrainData.put("train_number : 16, departure_time : 18:00, arrival_time : 19:00, departure_station : Lyon, arrival_station : Marseille");
-        fakeTrainData.put("train_number : 17, departure_time : 20:00, arrival_time : 21:00, departure_station : Marseille, arrival_station : Nice");
-        fakeTrainData.put("train_number : 18, departure_time : 22:00, arrival_time : 23:00, departure_station : Nice, arrival_station : Montpellier");
-        fakeTrainData.put("train_number : 19, departure_time : 00:00, arrival_time : 01:00, departure_station : Montpellier, arrival_station : Bordeaux");
-        fakeTrainData.put("train_number : 20, departure_time : 02:00, arrival_time : 03:00, departure_station : Bordeaux, arrival_station : Toulouse");
+
+        EditText departure = findViewById(R.id.edit_departure);
+        EditText arrival = findViewById(R.id.edit_arrival);
+
+        trainList = findViewById(R.id.train_list);
+
+        if (getIntent().hasExtra("departure") || getIntent().hasExtra("arrival")) {
+            String departureStation = getIntent().getStringExtra("departure");
+            String arrivalStation = getIntent().getStringExtra("arrival");
+            updateTrainList(departureStation, arrivalStation);
+        }
+
+        Button searchTrainButton = findViewById(R.id.button_search);
+        searchTrainButton.setOnClickListener(v -> {
+            String departureText = departure.getText().toString().trim();
+            String arrivalText = arrival.getText().toString().trim();
+
+            if (departureText.isEmpty()) departureText = "";
+            if (arrivalText.isEmpty()) arrivalText = "";
+
+            updateTrainList(departureText, arrivalText);
+        });
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
