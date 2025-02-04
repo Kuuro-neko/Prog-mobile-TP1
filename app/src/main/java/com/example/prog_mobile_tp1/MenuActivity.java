@@ -19,6 +19,7 @@ public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle(R.string.app_name); // Exercice 4, pour mettre à jour le nom de l'app en fonction de la langue
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_menu);
@@ -36,7 +37,7 @@ public class MenuActivity extends AppCompatActivity {
         return true;
     }
 
-    // Exercice 4
+    // Exercice 4, change la langue de l'application
     private void setLocale(String lang) {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
@@ -64,8 +65,7 @@ public class MenuActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AgendaActivity.class);
             startActivity(intent);
             return true;
-        } else if (id == R.id.menu_lang) { // Exercice 4
-            Log.d("MenuActivity", "Change language. current: " + Locale.getDefault().getLanguage());
+        } else if (id == R.id.menu_lang) { // Exercice 4, change la langue de l'application
             if (Locale.getDefault().getLanguage().equals("en")) {
                 setLocale("fr");
             } else {
