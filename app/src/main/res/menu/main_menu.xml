@@ -2,14 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_helloworld"
-        android:title="Hello World"/>
+        android:title="@string/label_menu_helloworld"/>
     <item
         android:id="@+id/menu_simple"
-        android:title="Simple Interface"/>
+        android:title="@string/label_menu_simple"/>
     <item
         android:id="@+id/menu_train"
-        android:title="Train Interface"/>
+        android:title="@string/label_menu_train"/>
     <item
         android:id="@+id/menu_agenda"
-        android:title="Agenda Interface"/>
+        android:title="@string/label_menu_agenda"/>
+    <item
+        android:id="@+id/menu_lang"
+        android:title="@string/label_menu_lang"/>
 </menu>

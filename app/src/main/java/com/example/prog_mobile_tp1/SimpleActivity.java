@@ -1,5 +1,7 @@
 package com.example.prog_mobile_tp1;
 
+import static android.provider.Settings.System.getString;
+
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;

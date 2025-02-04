@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">Prog-mobile-TP1</string>
 
+    <!-- Exercice 3 -->
     <string name="label_lastname">Nom</string>
     <string name="label_firstname">Prénom</string>
     <string name="label_age">Âge</string>
     <string name="label_skills">Domaine de compétences</string>
     <string name="label_phone">N° de téléphone</string>
 
+    <!-- Exercice 4 -->
+    <string name="label_menu_helloworld" translatable="false">Hello World</string>
+    <string name="label_menu_simple">Interface simple</string>
+    <string name="label_menu_train">Interface Train</string>
+    <string name="label_menu_agenda">Interface Agenda</string>
+    <string name="label_menu_lang">Changer de langue</string>
 </resources>
