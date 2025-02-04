@@ -20,4 +20,9 @@
     <string name="label_alert_confirm">Voulez-vous vraiment valider ?</string>
     <string name="label_alert_yes">Oui</string>
     <string name="label_alert_no">Non</string>
+
+    <!-- Exercice 6 -->
+    <string name="button_previous">Retour</string>
+    <string name="button_ok">OK</string>
+    <string name="no_data">Pas de données saisies !</string>
 </resources>

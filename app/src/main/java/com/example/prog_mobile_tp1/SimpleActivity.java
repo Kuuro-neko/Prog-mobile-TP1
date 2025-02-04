@@ -2,7 +2,11 @@ package com.example.prog_mobile_tp1;
 
 import static android.provider.Settings.System.getString;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -21,7 +25,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SimpleActivity extends MenuActivity {
     // (Exercice 3) La version entièrement XML n'est plus utilisée, mais vous pouvez vous référer à /res/layout/activity_simple.xml pour voir comment le layout était avant d'être généré en Java
-    private void addRow(LinearLayout layout, String label) {
+    private EditText addRow(LinearLayout layout, String label) {
         LinearLayout row = new LinearLayout(this);
         row.setOrientation(LinearLayout.HORIZONTAL);
         row.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -34,6 +38,7 @@ public class SimpleActivity extends MenuActivity {
         row.addView(textView);
         row.addView(editText);
         layout.addView(row);
+        return editText;
     }
 
     @Override
@@ -51,11 +56,11 @@ public class SimpleActivity extends MenuActivity {
         mainLayout.addView(verticalLayout);
 
         // Champs à remplir (Exercice 3)
-        addRow(verticalLayout, getString(R.string.label_lastname));
-        addRow(verticalLayout, getString(R.string.label_firstname));
-        addRow(verticalLayout, getString(R.string.label_age));
-        addRow(verticalLayout, getString(R.string.label_skills));
-        addRow(verticalLayout, getString(R.string.label_phone));
+        EditText lastNameEditText = addRow(verticalLayout, getString(R.string.label_lastname));
+        EditText firstNameEditText = addRow(verticalLayout, getString(R.string.label_firstname));
+        EditText ageEditText = addRow(verticalLayout, getString(R.string.label_age));
+        EditText skillsEditText = addRow(verticalLayout, getString(R.string.label_skills));
+        EditText phoneEditText = addRow(verticalLayout, getString(R.string.label_phone));
 
         // Exercice 5. Bouton valider
         Button button = new Button(this);
@@ -65,13 +70,28 @@ public class SimpleActivity extends MenuActivity {
                 // Fenêtre de confirmation
                 AlertDialog.Builder builder = new AlertDialog.Builder(SimpleActivity.this);
                 builder.setMessage(getString(R.string.label_alert_confirm));
-                builder.setPositiveButton(getString(R.string.label_alert_yes),null);
+                builder.setPositiveButton(getString(R.string.label_alert_yes), new AlertDialog.OnClickListener() {
+                    // Exercice 6, EventListener sur le bouton confirmer de la fenêtre de confirmation pour envoyer vers la nouvelle activité
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(SimpleActivity.this, DetailsActivity.class);
+
+                        intent.putExtra("lastname", lastNameEditText.getText().toString());
+                        intent.putExtra("firstname", firstNameEditText.getText().toString());
+                        intent.putExtra("age", ageEditText.getText().toString());
+                        intent.putExtra("skills", skillsEditText.getText().toString());
+                        intent.putExtra("phone", phoneEditText.getText().toString());
+
+                        startActivity(intent);
+                    }
+                    // Fin exercice 6 pour ce fichier
+                });
+
                 builder.setNegativeButton(getString(R.string.label_alert_no), null);
                 builder.show();
             }
         });
         verticalLayout.addView(button);
-        // Fin de l'exercice 5
+        // Fin de l'exercice 5 pour ce fichier
 
         // Contraintes pour center les champs (Exercice 3)
         ConstraintSet set = new ConstraintSet();
