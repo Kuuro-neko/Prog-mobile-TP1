@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// Exercice 8
 public class TrainActivity extends MenuActivity {
 
     ListView trainList;

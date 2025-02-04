@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Exercice 8 -->
 <resources>
     <array name="train_departures_stations">
         <item>Paris</item>
@@ -19,8 +20,8 @@
         <item>Montpellier</item>
         <item>Montpellier</item>
         <item>Paris</item>
-        <item>Montpellier</item>
         <item>Paris</item>
+        <item>Lyon</item>
         <item>Lyon</item>
     </array>
     <array name="train_arrival_stations">
@@ -28,23 +29,23 @@
         <item>Montpellier</item>
         <item>Lyon</item>
         <item>Toulouse</item>
-        <item>Montpellier</item>
+        <item>Toulouse</item>
         <item>Paris</item>
         <item>Montpellier</item>
         <item>Bordeaux</item>
-        <item>Montpellier</item>
+        <item>Paris</item>
         <item>Toulouse</item>
         <item>Lyon</item>
         <item>Paris</item>
         <item>Montpellier</item>
         <item>Bordeaux</item>
-        <item>Paris</item>
+        <item>Bordeaux</item>
         <item>Paris</item>
         <item>Paris</item>
         <item>Bordeaux</item>
         <item>Paris</item>
         <item>Bordeaux</item>
-        <item>Montpellier</item>
+        <item>Bordeaux</item>
     </array>
     <array name="train_departures_times">
         <item>08:00</item>
