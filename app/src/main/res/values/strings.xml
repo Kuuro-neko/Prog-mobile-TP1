@@ -25,4 +25,7 @@
     <string name="button_previous">Retour</string>
     <string name="button_ok">OK</string>
     <string name="no_data">Pas de données saisies !</string>
+
+    <!-- Exercice 7 -->
+    <string name="button_call">Appeler</string>
 </resources>
