@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Mobile-prog-TP1</string>
+
+    <!-- Exercice 4 (traduction en anglais de l'exercice 3) -->
+    <string name="label_lastname">Last name</string>
+    <string name="label_firstname">First name</string>
+    <string name="label_age">Age</string>
+    <string name="label_skills">Area of expertise</string>
+    <string name="label_phone">Phone number</string>
+
+    <!-- Exercice 4 -->
+    <string name="label_menu_simple">Simple Interface</string>
+    <string name="label_menu_train">Train Interface</string>
+    <string name="label_menu_agenda">Agenda Interface</string>
+    <string name="label_menu_lang">Toggle language</string>
+
+    <!-- Exercice 5 -->
+    <string name="label_btn_confirm">Confirm</string>
+    <string name="label_alert_confirm">Do you really want to confirm ?</string>
+    <string name="label_alert_yes">Yes</string>
+    <string name="label_alert_no">No</string>
+
+    <!-- Exercice 6 -->
+    <string name="button_previous">Return</string>
+    <string name="button_ok">OK</string>
+    <string name="no_data">No data entered !</string>
+
+    <!-- Exercice 7 -->
+    <string name="button_call">Call</string>
+</resources>
