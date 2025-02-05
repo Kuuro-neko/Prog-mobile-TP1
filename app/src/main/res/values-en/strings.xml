@@ -34,4 +34,7 @@
     <string name="hint_departure">Departure station</string>
     <string name="hint_arrival">Arrival station</string>
     <string name="button_search">Search</string>
+    <string name="hint_edit_new_event">Event description</string>
+    <string name="button_add">Add</string>
+    <string name="label_events">"Events of "</string>
 </resources>

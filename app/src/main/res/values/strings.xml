@@ -35,4 +35,9 @@
     <string name="hint_departure">Gare de départ</string>
     <string name="hint_arrival">Gare d\'arrivée</string>
     <string name="button_search">Rechercher</string>
+
+    <!-- Exercice 9 -->
+    <string name="hint_edit_new_event">Description événement</string>
+    <string name="button_add">Ajouter</string>
+    <string name="label_events">Événements du </string>
 </resources>
