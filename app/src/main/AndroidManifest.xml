@@ -18,29 +18,23 @@
             android:exported="false" />
         <activity
             android:name=".MenuActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity
             android:name=".AgendaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TrainActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".DetailsActivity"/>
+        <activity
+            android:name=".SimpleActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <activity
-            android:name=".TrainActivity"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name=".DetailsActivity"
-            android:exported="false"></activity>
-        <activity
-            android:name=".SimpleActivity"
-            android:exported="false">
-
         </activity>
         <activity
             android:name=".HelloWorldActivity"
